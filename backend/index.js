@@ -60,13 +60,6 @@ const parseFileFromBuffer = (buffer, originalName) => {
   throw new Error('Unsupported file type');
 };
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-});
-
 // Route to accept single file
 app.post('/api/import', upload.single('file'), async (req, res) => {
   const { importType } = req.body;
@@ -184,4 +177,11 @@ app.get('/api/companies', async (req, res) => {
     console.error('Error fetching companies:', error.message);
     res.status(500).json({ status: 'error', message: 'Server Error' });
   }
+});
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 });
