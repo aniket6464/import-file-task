@@ -7,6 +7,7 @@ import XLSX from 'xlsx'
 import csvParser from 'csv-parser';
 import { Readable } from 'stream';
 import path from 'path';
+import cors from cors;
 
 // Load environment variables
 dotenv.config();
@@ -15,6 +16,11 @@ connectDB()
 
 // Create Express app
 const app = express();
+
+// Allow requests from specific frontend origin
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
 
 // Middleware
 app.use(express.json());
