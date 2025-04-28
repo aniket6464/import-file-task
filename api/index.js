@@ -19,7 +19,7 @@ const app = express();
 
 // Allow requests from specific frontend origin
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'https://import-file-task.onrender.com/frontend'
 }));
 
 // Middleware
