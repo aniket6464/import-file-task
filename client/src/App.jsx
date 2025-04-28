@@ -50,7 +50,8 @@ const App = () => {
       console.error(err);
       setError("Upload failed. Server not responding.");
     } finally {
-      setIsUploading(false); // Always reset uploading state
+      setIsUploading(false); 
+      setImportType("");
     }
   };
 
@@ -123,7 +124,9 @@ const App = () => {
         )}
 
         {/* Companies Table */}
+        <br /> 
         <div className="overflow-x-auto">
+          <h2 className="text-2xl font-bold mb-4 text-blue-600 text-center">Companies List</h2>
           <table className="min-w-full border">
             <thead>
               <tr className="bg-gray-200">
