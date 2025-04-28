@@ -7,7 +7,7 @@ import XLSX from 'xlsx'
 import csvParser from 'csv-parser';
 import { Readable } from 'stream';
 import path from 'path';
-import cors from cors;
+import cors from 'cors';
 
 // Load environment variables
 dotenv.config();
