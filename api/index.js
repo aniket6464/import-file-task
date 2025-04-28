@@ -179,9 +179,10 @@ app.get('/api/companies', async (req, res) => {
   }
 });
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '/frontend/dist')));
+// const __dirname = path.resolve();
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
-});
+// app.use(express.static(path.join(__dirname, '/client/dist')));
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+// })
